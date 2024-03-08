@@ -3,9 +3,14 @@
   padding: 0;  
   }
   
-  h1 {
+  .club_cards h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    background-color: rgb(50, 50, 50);
+    color: #fff;
+    padding: 20px;
+    
   }
   
   .club_cards_container {

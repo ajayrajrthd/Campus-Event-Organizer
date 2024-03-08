@@ -4,7 +4,9 @@ import ClubCards from '../Club_Cards';
 
 function Clubs() {
   return(
-    <ClubCards/>
+    <>
+     <ClubCards/>
+    </>
   ) 
 }
 
