@@ -1,10 +1,13 @@
 import React from 'react';
 import '../../App.css';
-import EventCards from '../EventCards'
+import Cards from '../Cards'
 
-export default function Events() {
+function Events() {
   return(
-    <EventCards/>
+    <div className='events'>
+      Here are the events
+    </div>
   );
 }
 
+export default Events

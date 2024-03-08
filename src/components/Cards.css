@@ -99,6 +99,10 @@ h1 {
   line-height: 24px;
 }
 
+.cards__item__paragraph{
+  color: rgb(78, 78, 78);
+}
+
 @media only screen and (min-width: 1200px) {
   .content__blog__container {
     width: 84%;
