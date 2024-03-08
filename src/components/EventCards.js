@@ -49,7 +49,7 @@ function EventCards() {
             />
             <CardItem
               src='images/img-8.jpg'
-              text='Events by APSIT'
+              text='Aayush Rokade is here'
               label='College'
               path='/sign-up'
             />
