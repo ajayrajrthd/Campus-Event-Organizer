@@ -26,7 +26,8 @@ function Organizer() {
   };
 
   return (
-    <div className="form-container">
+    <div className='form-container'>
+    <div className='form-container-inside'>
       <h1>Organize An Event!</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="organizer">Organizer Name:</label>
@@ -103,6 +104,7 @@ function Organizer() {
         
         <button type="submit">Submit</button>
       </form>
+    </div>
     </div>
   );
 }

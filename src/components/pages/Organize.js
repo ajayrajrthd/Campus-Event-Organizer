@@ -1,10 +1,11 @@
-import React from 'react';
-import '../../App.css';
-import Organizer from '../Organizer';
+import React from 'react'
+import Organizer from '../Organizer'
 
-export default function Organize() 
-{
-  return(
+
+function Organize() {
+  return (
     <Organizer/>
-  );
+  )
 }
+
+export default Organize

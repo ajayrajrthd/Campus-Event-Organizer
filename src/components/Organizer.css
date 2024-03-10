@@ -1,63 +1,60 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  margin: 0;
-  padding: 20px;
-  background-image: url('/public/images/orgbg1.png');
-  background-repeat: repeat;
-  background-size: cover;
+.form-container{
+    background-image: url('../../public/images/orgbg.png');
+    background-repeat: repeat;
+    background-size: cover;
+    padding: 2% 0px;
 }
 
-
-.form-container {
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: #b46af59d;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-label {
-  font-weight: bold;
-}
-
-input[type="url"],
-input[type="text"],
-input[type="number"],
-input[type="time"],
-textarea,
-button {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-button {
-  background-color: #092542;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-input[type="date"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+.form-container-inside {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #5e73dbe7;
+    padding: 0% 1.5%;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-container-inside h1{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .form-container-inside form label {
+    font-weight: bold;
+    
+  }
+  
+  .form-container-inside form input[type="url"],
+  .form-container-inside form input[type="text"],
+  .form-container-inside form input[type="number"],
+  .form-container-inside form input[type="time"],
+  .form-container-inside form textarea,
+  .form-container-inside form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .form-container-inside form .button {
+    background-color: #092542;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .form-container-inside form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .form-container-inside form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
