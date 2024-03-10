@@ -7,7 +7,6 @@ import Clubs from './components/pages/Clubs.js';
 import Events from './components/pages/Events.js';
 import AboutUs from './components/pages/AboutUs.js';
 import Organize from './components/pages/Organize.js';
-import Test from './components/pages/Test.js';
 import { Switch } from 'react-router-dom/cjs/react-router-dom.min.js';
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
           <Route path='/Events' component={Events} />
           <Route path='/AboutUs' component={AboutUs} />
           <Route path='/Organize' component={Organize}/>
-          <Route path='/Test' component={Test}/>
         </Switch>
       </Router>
     </>
