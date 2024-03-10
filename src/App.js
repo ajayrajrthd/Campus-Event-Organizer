@@ -8,6 +8,7 @@ import Events from './components/pages/Services.js';
 import Products from './components/pages/Events.js';
 import SignUp from './components/pages/SignUp.js';
 import { Switch } from 'react-router-dom/cjs/react-router-dom.min.js';
+import Organize from './components/pages/Organize.js';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/Events' component={Events} />
           <Route path='/products' component={Products} />
           <Route path='/sign-up' component={SignUp} />
+          <Route path='/organize' components={<Organize/>}/>
         </Switch>
       </Router>
     </>

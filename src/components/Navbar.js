@@ -29,8 +29,8 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          <img src={'/images/logo192.png'} alt="Logo" />
-            WonderFest
+          <img src={'/images/ceologo2.png'} alt="Logo" />
+            Campus Event Organizer
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -48,6 +48,15 @@ function Navbar() {
                 onClick={closeMobileMenu}
               >
                 Reminders
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link
+                to='/organize'
+                className='nav-links'
+                onClick={closeMobileMenu}
+              >
+                Organize
               </Link>
             </li>
             <li className='nav-item'>
