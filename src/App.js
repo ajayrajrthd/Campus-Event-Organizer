@@ -19,7 +19,7 @@ function App() {
           <Route path='/Clubs' component={Clubs} />
           <Route path='/Events' component={Events} />
           <Route path='/AboutUs' component={AboutUs} />
-          <Route path='/Organize' component={Organize}/>
+          <Route path='/Organize' component={Organize}/>  
         </Switch>
       </Router>
     </>
