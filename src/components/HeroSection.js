@@ -2,12 +2,26 @@ import React from 'react';
 import '../App.css';
 import { Button } from './Button';
 import './HeroSection.css';
+import Typed from 'typed.js';
 
 function HeroSection() {
+  const el = React.useRef(null);
+    React.useEffect(() => {
+        const typed = new Typed(el.current, {
+          strings: ['The Event Awaits','Create Your Event'],
+          typeSpeed: 60,
+          loop: true,
+          showCursor: false,
+          backSpeed: 60,
+        });
+        return () => {
+          typed.destroy();
+        };
+        }, []);
   return (
     <div className='hero-container'>
       <video src='/videos/video-1.mp4' autoPlay loop muted />
-      <h1>THE EVENT AWAITS</h1>
+      <h1 ref={el} />
       <p>Let People Know!</p>
       <div className='hero-btns'>
         <Button
