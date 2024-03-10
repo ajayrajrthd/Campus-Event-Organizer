@@ -1,10 +1,15 @@
 import React from 'react';
 import '../../App.css';
-import EventCards from '../EventCards'
+import { useState } from 'react';
+import EventsList from '../EventsList';
 
-export default function Events() {
+function Events() {
+  
   return(
-    <EventCards/>
+    <>
+    <EventsList/>
+    </>
   );
 }
 
+export default Events

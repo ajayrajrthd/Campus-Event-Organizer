@@ -6,9 +6,9 @@
 }
 
 .home,
-.services,
-.products,
-.sign-up {
+.clubs,
+.events,
+.aboutus {
   display: flex;
   height: 90vh;
   align-items: center;
@@ -21,7 +21,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  color: #fff;
+  color: #a82b2b;
   font-size: 100px;
 }
 

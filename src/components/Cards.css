@@ -3,8 +3,12 @@
   background: #fff;
 }
 
-h1 {
+.cards h1 {
   text-align: center;
+  background-color: rgb(50, 50, 50);
+  color: #fff;
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .cards__container {
@@ -91,12 +95,17 @@ h1 {
 
 .cards__item__info {
   padding: 20px 30px 30px;
+  background-color: #e7e7e7;
 }
 
 .cards__item__text {
   color: #252e48;
   font-size: 18px;
   line-height: 24px;
+}
+
+.cards__item__paragraph{
+  color: rgb(78, 78, 78);
 }
 
 @media only screen and (min-width: 1200px) {
