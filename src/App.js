@@ -9,7 +9,6 @@ import Events from './components/pages/Events.js';
 import AboutUs from './components/pages/AboutUs.js';
 import Organize from './components/pages/Organize.js';
 import { Switch } from 'react-router-dom/cjs/react-router-dom.min.js';
-import Organize from './components/pages/Organize.js';
 
 function App() {
   return (
