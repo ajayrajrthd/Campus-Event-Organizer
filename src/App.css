@@ -16,8 +16,8 @@
   font-size: 3rem;
 }
 
-.clubs {
-  background-image: url('../public/images/img-2.jpg');
+.services {
+  background-image: url('C:\event-manager-using-react\public\images\img-2.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -25,8 +25,8 @@
   font-size: 100px;
 }
 
-.events {
-  background-image: url('../public/images/img-1.jpg');
+.products {
+  background-image: url('C:\event-manager-using-react\public\images\img-1.jpg');
   background-position: center;
   background-size: fill;
   background-repeat: no-repeat;
@@ -34,8 +34,8 @@
   font-size: 100px;
 }
 
-.aboutus {
-  background-image: url('../public/images/img-8.jpg');
+.sign-up {
+  background-image: url('C:\event-manager-using-react\public\images\img-8.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
