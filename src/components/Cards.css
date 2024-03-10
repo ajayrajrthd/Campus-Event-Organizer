@@ -3,12 +3,8 @@
   background: #fff;
 }
 
-.cards h1 {
+h1 {
   text-align: center;
-  background-color: rgb(50, 50, 50);
-  color: #fff;
-  padding: 20px;
-  border-radius: 20px;
 }
 
 .cards__container {
@@ -95,7 +91,6 @@
 
 .cards__item__info {
   padding: 20px 30px 30px;
-  background-color: #e7e7e7;
 }
 
 .cards__item__text {
