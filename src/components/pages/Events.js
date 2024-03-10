@@ -1,12 +1,13 @@
 import React from 'react';
 import '../../App.css';
-import Cards from '../Cards'
+import EventsList from '../EventsList';
 
 function Events() {
+
   return(
-    <div className='events'>
-      Here are the events
-    </div>
+    <>
+    <EventsList/>
+    </>
   );
 }
 

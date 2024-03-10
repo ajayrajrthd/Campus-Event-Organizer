@@ -2,26 +2,25 @@
     background-image: url('../../public/images/orgbg.png');
     background-repeat: repeat;
     background-size: cover;
-    padding: 2% 0px;
+    padding: 20px 20px;
 }
 
 .form-container-inside {
-    width: 50%;
+    max-width: 800px;
     margin: 0 auto;
-    background-color: #5e73dbe7;
-    padding: 0% 1.5%;
+    background-color: #688be3c9;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
-  .form-container-inside h1{
+  .form-container-inside h1 {
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
   .form-container-inside form label {
-    font-weight: bold;
-    
+    font-size: large;
   }
   
   .form-container-inside form input[type="url"],
@@ -38,7 +37,7 @@
     box-sizing: border-box;
   }
   
-  .form-container-inside form .button {
+  .form-container-inside form button {
     background-color: #092542;
     color: white;
     border: none;
@@ -58,3 +57,4 @@
     border-radius: 4px;
     box-sizing: border-box;
   }
+  

@@ -8,37 +8,13 @@
 .home,
 .clubs,
 .events,
-.sign-up {
+.aboutus {
   display: flex;
   height: 90vh;
   align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-}
-
-.clubs {
-  background-image: url('../public/images/img-2.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-}
-
-.events {
-  background-image: url('../public/images/img-1.jpg');
-  background-position: center;
-  background-size: fill;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-}
-
-.sign-up {
-  background-image: url('../public/images/img-8.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
+  color: #a82b2b;
   font-size: 100px;
 }
