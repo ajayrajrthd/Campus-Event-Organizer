@@ -28,6 +28,7 @@ function HeroSection() {
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
+          anchor='./Login'
         >
           Login
         </Button>
@@ -35,7 +36,7 @@ function HeroSection() {
           className='btns'
           buttonStyle='btn--primary'
           buttonSize='btn--large'
-          onClick={console.log('hey')}
+          anchor='/Events'
         >
           Register <i className='far fa-id-card' />
         </Button>
