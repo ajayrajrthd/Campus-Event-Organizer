@@ -16,16 +16,18 @@ const Signin = (props) => {
 
   return (
     <div className={'mainContainer'}>
+      <video src='/videos/video-2.mp4' autoPlay loop muted />
       <div className={'titleContainer'}>
-        <div>Login</div>
+        <div><u>Login</u></div>
       </div>
       <br />
       <div className={'inputContainer'}>
         <input
           value={email}
-          placeholder="Enter your email here"
+          placeholder="Email"
           onChange={(ev) => setEmail(ev.target.value)}
           className={'inputBox'}
+          required
         />
         <label className="errorLabel">{emailError}</label>
       </div>
@@ -33,15 +35,16 @@ const Signin = (props) => {
       <div className={'inputContainer'}>
         <input
           value={password}
-          placeholder="Enter your password here"
+          placeholder="Password"
           onChange={(ev) => setPassword(ev.target.value)}
           className={'inputBox'}
+          required
         />
         <label className="errorLabel">{passwordError}</label>
       </div>
       <br />
       <div className={'inputContainer'}>
-        <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
+        <input className={'inputButton'} type="submit" onClick={onButtonClick} value={'Log in'} />
       </div>
     </div>
   )

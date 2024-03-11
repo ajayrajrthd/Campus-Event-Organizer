@@ -9,7 +9,7 @@ function EventsList() {
     const month = today.getMonth();
     const year = today.getFullYear();
     const date = today.getDate();
-    return `${month+1}/${date}/${year}`;
+    return `${date}/${month+1}/${year}`;
   }  
   const [currentDate, setCurrentDate] = useState(getDate());
   return (
