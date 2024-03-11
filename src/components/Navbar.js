@@ -59,10 +59,9 @@ function Navbar() {
                 Events
               </Link>
             </li>
-
             <li>
               <Link
-                to='/about'
+                to='/AboutUs'
                 className='nav-links-mobile'
                 onClick={closeMobileMenu}
               >
@@ -70,7 +69,7 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle='btn--outline'>About Us</Button>}
+          {button && <Button buttonStyle='btn--outline' anchor='/AboutUs'>About Us</Button>}
         </div>
       </nav>
     </>
