@@ -1,18 +1,52 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import './Signin.css'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './Signin.css';
 
-const Signin = (props) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [emailError, setEmailError] = useState('')
-  const [passwordError, setPasswordError] = useState('')
+const Signin = () => {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    error: ''
+  });
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const onButtonClick = () => {
-    // You'll update this function later...
-  }
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:5000/login', formData);
+      const token = response.data.token;
+      localStorage.setItem('token', token);
+      navigate('/dashboard');
+    } catch (error) {
+      if (error.response) {
+        if (error.response.status === 400) {
+          setFormData({
+            ...formData,
+            error: 'Invalid email or password'
+          });
+        } else {
+          setFormData({
+            ...formData,
+            error: 'An error occurred. Please try again.'
+          });
+        }
+      } else {
+        setFormData({
+          ...formData,
+          error: 'Network error. Please try again.'
+        });
+      }
+    }
+  };
 
   return (
     <div className={'mainContainer'}>
@@ -21,33 +55,38 @@ const Signin = (props) => {
         <div><u>Login</u></div>
       </div>
       <br />
-      <div className={'inputContainer'}>
-        <input
-          value={email}
-          placeholder="Email"
-          onChange={(ev) => setEmail(ev.target.value)}
-          className={'inputBox'}
-          required
-        />
-        <label className="errorLabel">{emailError}</label>
-      </div>
-      <br />
-      <div className={'inputContainer'}>
-        <input
-          value={password}
-          placeholder="Password"
-          onChange={(ev) => setPassword(ev.target.value)}
-          className={'inputBox'}
-          required
-        />
-        <label className="errorLabel">{passwordError}</label>
-      </div>
-      <br />
-      <div className={'inputContainer'}>
-        <input className={'inputButton'} type="submit" onClick={onButtonClick} value={'Log in'} />
-      </div>
+      <form className="signin-form" onSubmit={handleSubmit}>
+        <div className={'inputContainer'}>
+          <input
+            value={formData.email}
+            placeholder="Email"
+            name="email"
+            onChange={handleInputChange}
+            className={'inputBox'}
+            required
+          />
+        </div>
+        <br />
+        <div className={'inputContainer'}>
+          <input
+            value={formData.password}
+            placeholder="Password"
+            name="password"
+            type="password"
+            onChange={handleInputChange}
+            className={'inputBox'}
+            required
+          />
+        </div>
+        <br />
+        {formData.error && <label className="errorLabel">{formData.error}</label>}
+        <br />
+        <div className={'inputContainer'}>
+          <input className={'inputButton'} type="submit" value={'Log in'} />
+        </div>
+      </form>
     </div>
-  )
-}
+  );
+};
 
-export default Signin
+export default Signin;
