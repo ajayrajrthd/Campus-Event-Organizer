@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const session = require('express-session');
+const UserModel = require('./modules/Events_Info')
 
 // Middleware
 app.use(cors());
@@ -18,6 +19,13 @@ const url = 'mongodb+srv://disha:dishadisha@cluster0.0fuuedz.mongodb.net/Event';
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
+
+//connecting to Events_Info
+app.get('/getEvents', (req, res) => {
+  Data.find()
+  .then(organizer => res.json(organizer))
+  .catch(err => res.json(err))
+})
 
 // Generating tokens and creating sessions
 const secretKey = crypto.randomBytes(64).toString('hex');
@@ -80,7 +88,7 @@ app.post('/login',async(req,res)=>{
     const reg=await Reg.findOne({email});
     if (!reg){
       return res.status(400).json({ message: 'invalid email or password' });
-      console.log('invalid email')
+      alert('invalid email')
     }
 const isPasswordValid = await bcrypt.compare(password, reg.password);
     if (!isPasswordValid) {

@@ -10,6 +10,7 @@ import Organize from './components/pages/Organize.js';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import Register_Events from './components/pages/Register_Events.js';
+import Events_Display from './components/pages/Events_Display.js';
 // import { Switch } from 'react-router-dom';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path='/Login' element={<Login/>}/> 
           <Route path='/Register' element={<Register/>}/>
           <Route path='/Register_Events' element={<Register_Events/>}/> 
+          <Route path='/Events_Display' element={<Events_Display/>}/> 
         </Routes>
       </Router>
     </>
