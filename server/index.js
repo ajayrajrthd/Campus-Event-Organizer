@@ -81,6 +81,40 @@ app.post('/register', async (req, res) => {
   }
 });
 
+// Register_student Schema
+const regsSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true},
+  branch: { type: String, required: true },
+  year: { type: String, required: true },
+  division: { type: String, required: true },
+  moodle: { type: String, required: true, unique: true }
+});
+
+const Regs = mongoose.model('students', regsSchema);
+
+// Register_students Route
+app.post('/register_student', async (req, res) => {
+  const { name, email, branch, year, division, moodle } = req.body;
+  
+  if (!name || !email || !branch || !year || !division|| !moodle) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
+
+  try {
+    const existingStudent = await Regs.findOne({ moodle });
+    if (existingStudent) {
+      return res.status(400).json({ message: 'Student is already registered' });
+    }
+    const newStudent= new Regs({name,email,branch,year,division,moodle})
+    await newStudent.save();
+    return res.json({ message: 'Registration successful' });
+  } catch (error) {
+    console.error('Error registering user:', error);
+    return res.status(500).json({ message: 'Registration failed' });
+  }
+});
+
 //Login
 app.post('/login',async(req,res)=>{
   const{email,password}=req.body;
