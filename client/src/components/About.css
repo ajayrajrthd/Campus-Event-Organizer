@@ -45,6 +45,7 @@
   }
 
   .container::after, .row::after {
+    align-items: flex-start;
     content: "";
     clear: both;
     display: table;

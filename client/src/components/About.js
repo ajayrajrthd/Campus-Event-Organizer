@@ -1,59 +1,77 @@
-import React from 'react'
-import './About.css'
+import React from 'react';
+import './About.css';
 
 function About() {
+  const redirectToEmail = (email) => {
+    window.location.href = `mailto:${email}`;
+  };
+
   return (
     <div className='about'>
-    <div className="about-section">
-    <h1>About Us Page</h1>
-    <p>Some text about who we are and what we do.</p>
-    <p>Resize the browser window to see that this page is responsive by the way.</p>
-    </div>
-    <div className='heading'>
-    <h1>Meet Our Team</h1>
-    </div>
-    <div class="row">
-    <div class="column">
-    <div class="card">
-      <img src="images/img-9.jpg" alt="Jane"/>
-      <div class="container">
-        <h2>Jane Doe</h2>
-        <p class="title">CEO & Founder</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>jane@example.com</p>
-        <a href='aayushrokade03@gmail.com'><button class="button">Contact</button></a>
+      <div className="about-section">
+        <h1>About Us Page</h1>
+        <p>Some text about who we are and what we do.</p>
+        <p>We are a  four member team.</p>
+        <p>Feel free to contact any of us incase you have any queries</p>
       </div>
-    </div>
-  </div>
+      <div className='heading'>
+        <h1>Meet Our Team</h1>
+      </div>
+      <div className="row">
+        <div className="column">
+          <div className="card">
+            <img src="images/disha.jpg" alt="Disha" />
+            <div className="container">
+              <h2>Disha Poojary</h2>
+              <p className="title">Web Developer</p>
+              <p>Hello! This is Disha. I'm a comps student in A.P.Shah Institute Of Technology.</p>
+              <p>dishapoojary@gmail.com</p>
+              <button className="button" onClick={() => redirectToEmail('dishapoojary@gmail.com')}>Contact</button>
+            </div>
+          </div>
+        </div>
 
-  <div class="column">
-    <div class="card">
-      <img src="images/img-9.jpg" alt="Mike"/>
-      <div class="container">
-        <h2>Mike Ross</h2>
-        <p class="title">Art Director</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>mike@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
+        <div className="column">
+          <div className="card">
+            <img src="images/aayush.jpg" alt="Aayush" />
+            <div className="container">
+              <h2>Aayush Rokade</h2>
+              <p className="title">Project Lead</p>
+              <p>Hello! This is Aayush. I'm a comps student in A.P.Shah Institute Of Technology.</p>
+              <p>aayushrokade123@gmail.com</p>
+              <button className="button" onClick={() => redirectToEmail('aayushrokade123@gmail.com')}>Contact</button>
+            </div>
+          </div>
+        </div>
 
-  <div class="column">
-    <div class="card">
-      <img src="images/img-9.jpg" alt="John" />
-      <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>john@example.com</p>
-        <p><button class="button">Contact</button></p>
+        <div className="column">
+          <div className="card">
+            <img src="images/aditya.jpg" alt="Aditya" />
+            <div className="container">
+              <h2>Aditya Raorane</h2>
+              <p className="title">UI/UX Designer</p>
+              <p>Hello! This is Aditya. I'm a student in A.P.Shah Institute Of Technology.</p>
+              <p>adityaraorane@gmail.com</p>
+              <button className="button" onClick={() => redirectToEmail('adityaraorane@gmail.com')}>Contact</button>
+            </div>
+          </div>
+        </div>
+
+        <div className="column">
+          <div className="card">
+            <img src="images/ajay.jpg" alt="Ajayraj" />
+            <div className="container">
+              <h2>Ajayraj Rathod</h2>
+              <p className="title">Content Editor</p>
+              <p>Hello! This is Ajayraj. I'm a comps student in A.P.Shah Institute Of Technology.</p>
+              <p>ajayrajrathod@gmail.com</p>
+              <button className="button" onClick={() => redirectToEmail('ajayrajrathod@gmail.com')}>Contact</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-</div>
-  )
+  );
 }
 
-export default About
+export default About;
