@@ -83,11 +83,11 @@ app.post('/register', async (req, res) => {
 
 // Register_student Schema
 const regsSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true},
-  branch: { type: String, required: true },
-  year: { type: String, required: true },
-  division: { type: String, required: true },
+  name: { type: String, required: true, unique: false },
+  email: { type: String, required: true, unique: false },
+  branch: { type: String, required: true, unique: false }, // Remove unique: true
+  year: { type: String, required: true, unique: false },
+  division: { type: String, required: true, unique: false }, // Remove unique: true
   moodle: { type: String, required: true, unique: true }
 });
 
