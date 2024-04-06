@@ -27,6 +27,13 @@ app.get('/getEvents', (req, res) => {
   .catch(err => res.json(err))
 })
 
+//fetching data from Student_Registartion
+app.get('/getRegistration', (req, res) => {
+  Regs.find()
+  .then(students => res.json(students))
+  .catch(err => res.json(err))
+})
+
 // Generating tokens and creating sessions
 const secretKey = crypto.randomBytes(64).toString('hex');
 

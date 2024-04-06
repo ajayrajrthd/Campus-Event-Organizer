@@ -1,6 +1,6 @@
 table, td, th {  
     border: 3px solid #5d5959;
-    text-align: left;
+    text-align: center;
   }
   
   table {
@@ -33,4 +33,24 @@ table, td, th {
 
   button:hover{
     background-color: #171717;
+  }
+
+  /* .action{
+    
+  } */
+
+  .green{
+    background-color: green;
+  }
+
+  .red{
+    background-color: red;
+  }
+
+  .green:hover{
+    background-color: rgb(0, 74, 0);
+  }
+
+  .red:hover{
+    background-color: rgb(143, 0, 0);
   }
