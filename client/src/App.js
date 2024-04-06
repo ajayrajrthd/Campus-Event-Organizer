@@ -11,11 +11,13 @@ import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import Register_Events from './components/pages/Register_Events.js';
 import Events_Display from './components/pages/Events_Display.js';
+import EmailExtractor from './components/EmailExtractor.js';
 // import { Switch } from 'react-router-dom';
 
 function App() {
   return (
     <>
+    <EmailExtractor/>
       <Router>
         <Navbar/>
         <Routes>
