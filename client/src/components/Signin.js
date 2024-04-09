@@ -23,8 +23,9 @@ const Signin = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/login', formData);
-      const token = response.data.token;
-      localStorage.setItem('token', token);
+      const { message, club } = response.data;
+      localStorage.setItem('club', club); // Store club name in local storage
+      alert(message);
       navigate('/dashboard');
     } catch (error) {
       if (error.response) {
