@@ -13,6 +13,7 @@ import Register_Events from './components/pages/Register_Events.js';
 import Events_Display from './components/pages/Events_Display.js';
 import Email_Extract from './components/pages/Email_Extract.js';
 import Registration_Select from './components/pages/Registation_Select.js';
+import EmailExtractor from './components/EmailExtractor.js';
 // import { Switch } from 'react-router-dom';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <>
       <Router>
         <Navbar/>
+        <EmailExtractor/>
         <Routes>
           <Route path='/' exact element={<Home/>} />
           <Route path='/Clubs' element={<Clubs/>} />
