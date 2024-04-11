@@ -10,6 +10,9 @@ const Signin = () => {
     error: ''
   });
 
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [greeting, setGreeting] = useState('');
+
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -22,10 +25,12 @@ const Signin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/login', formData);
-      const token = response.data.token;
+      const response = await axios.post('http://localhost:3000/login', formData);
+      const { token, email } = response.data;
       localStorage.setItem('token', token);
-      navigate('/dashboard');
+      setLoggedIn(true);
+      setGreeting(`Hello, ${email}!`);
+      navigate('/dashboard'); // Redirect to dashboard after successful login
     } catch (error) {
       if (error.response) {
         if (error.response.status === 400) {
@@ -84,6 +89,7 @@ const Signin = () => {
         <div className={'inputContainer'}>
           <input className={'inputButton'} type="submit" value={'Log in'} />
         </div>
+        {loggedIn && <div className={'greeting'}>{greeting}</div>}
       </form>
     </div>
   );

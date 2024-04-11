@@ -43,6 +43,11 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: false }
 }));
+app.use((req,res,next)=>{
+  const {organizer}=req.body;
+  req.sessionOptions.secret=crypto.createHash('sha256').update(organizer).digest('hex')
+
+})
 
 // Register Schema
 const regSchema = new mongoose.Schema({
@@ -90,11 +95,11 @@ app.post('/register', async (req, res) => {
 
 // Register_student Schema
 const regsSchema = new mongoose.Schema({
-  name: { type: String, required: true, unique: false },
-  email: { type: String, required: true, unique: false},
-  branch: { type: String, required: true, unique: false },
+  name: { type: String, required: true, },
+  email: { type: String, required: true,unique: false},
+  branch: { type: String, required: true,unique: false },
   year: { type: String, required: true, unique: false },
-  division: { type: String, required: true, unique: false },
+  division: { type: String, required: true,unique: false },
   moodle: { type: String, required: true, unique: true }
 });
 
