@@ -168,3 +168,15 @@ app.post('/add', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port:${port}`);
 });
+
+  const collection = Regs;
+  // API endpoint to get emails
+  app.get("/email", async (req, res) => {
+    try {
+      const email = await collection.distinct("email");
+      res.json(email);
+    } catch (error) {
+      console.error("Error fetching emails:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });
