@@ -21,7 +21,6 @@ function App() {
     <>
       <Router>
         <Navbar/>
-        <EmailExtractor/>
         <Routes>
           <Route path='/' exact element={<Home/>} />
           <Route path='/Clubs' element={<Clubs/>} />
