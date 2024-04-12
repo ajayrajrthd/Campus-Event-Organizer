@@ -24,14 +24,14 @@ function Registation_Selection() {
 
     const [email, setEvent] = useState([])
     useEffect(()=>{
-    axios.get("http://localhost:5000/email")
-    .then((response) => {
-     const email = setEvent(response.data);
-     console.log("Emails:", email);
-    })
-    .catch((error) => {
-     console.error("Error fetching emails:", error);
-    });
+        axios.get("http://localhost:5000/email")
+        .then((response) => {
+        const emails = setEvent(response.data);
+        console.log("Emails:", emails);
+     })
+        .catch((error) => {
+        console.error("Error fetching emails:", error);
+     });
     }, [])
 
     const handleSubmit = (e) => {
@@ -81,6 +81,9 @@ function Registation_Selection() {
                     </th>
                     <th>
                         Moodle ID
+                    </th>
+                    <th>
+                        Send Email
                     </th>
                 </tr>
             </thead>
