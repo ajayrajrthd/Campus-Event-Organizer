@@ -169,6 +169,19 @@ app.post('/add', (req, res) => {
     .catch((err) => res.status(400).json({ message: 'Error adding data', error: err }));
 });
 
+const coll = Data
+app.get("/club_events", async (req, res) => {
+  const { organizer } = req.query;
+
+  try {
+    const club_events = await coll.find({ organizer }).toArray();
+    res.json(club_events);
+  } catch (error) {
+    console.error("Error fetching events:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 
 const collection = Regs;
 // API endpoint to get emails
