@@ -25,7 +25,7 @@ const Signin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/login', formData);
+      const response = await axios.post('http://localhost:5000/login', formData);
       const { token, email } = response.data;
       localStorage.setItem('token', token);
       setLoggedIn(true);

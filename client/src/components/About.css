@@ -12,6 +12,8 @@
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin: 8px;
+    height: 80px;
+    width: 350px;
   }
 
   .card img{
@@ -49,6 +51,7 @@
     content: "";
     clear: both;
     display: table;
+    height: 50%;
   }
 
   .title {
@@ -77,3 +80,16 @@
       display: block;
     }
   }
+  .row{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .column{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+  }
+

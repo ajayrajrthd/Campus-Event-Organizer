@@ -128,22 +128,21 @@ app.post('/register_student', async (req, res) => {
 });
 
 //Login
-app.post('/login',async(req,res)=>{
-  const{email,password}=req.body;
-  try{
-    const reg=await Reg.findOne({email});
-    if (!reg){
-      return res.status(400).json({ message: 'invalid email or password' });
-      alert('invalid email')
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const reg = await Reg.findOne({ email });
+    if (!reg) {
+      return res.status(400).json({ message: 'Invalid email or password' });
     }
-const isPasswordValid = await bcrypt.compare(password, reg.password);
+    const isPasswordValid = await bcrypt.compare(password, reg.password);
     if (!isPasswordValid) {
       return res.status(400).json({ message: 'Invalid email or password' });
     }
-    req.session.reg={email:reg.email};
-    return res.json({message:'login successfull'})
-  }
-  catch(error){
+    req.session.reg = { email: reg.email };
+    // Send the club name along with the login success message
+    return res.json({ message: 'Login successful', club: reg.club });
+  } catch (error) {
     return res.status(500).json({ message: 'Server error' });
   }
 });
@@ -168,6 +167,19 @@ app.post('/add', (req, res) => {
   newData.save()
     .then(() => res.json('Data added successfully'))
     .catch((err) => res.status(400).json({ message: 'Error adding data', error: err }));
+});
+
+const coll = Data
+app.get("/club_events", async (req, res) => {
+  const { organizer } = req.query;
+
+  try {
+    const club_events = await coll.find({ organizer }).toArray();
+    res.json(club_events);
+  } catch (error) {
+    console.error("Error fetching events:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 
