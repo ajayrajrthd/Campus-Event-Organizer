@@ -1,48 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './Dashboard.css'; // Import the CSS file
 import { Link } from 'react-router-dom';
-import EventCardItem from './EventCardItem'; // Import the EventCardList component
+import EventCardClub from './EventCardClub';
 import axios from 'axios';
 
 const Dashboard = () => {
-  const [events, setEvents] = useState([]);
+  // const [events, setEvents] = useState([]);
   const clubName = "GDSC"; // Replace with your club name
-
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:5000/club_events?organizer=${clubName}`
-        );
-        setEvents(response.data);
-      } catch (error) {
-        console.error("Error fetching events:", error);
-      }
-    };
-
-    fetchEvents();
-  }, [clubName]);
-
-  // const [club, setClub] = useState('');
-  // const [clubEvents, setClubEvents] = useState([]);
-  // const [error, setError] = useState(null);
-
-  // useEffect(() => {
-  //   // Retrieve club name from local storage
-  //   const storedClub = localStorage.getItem('club');
-  //   if (storedClub) {
-  //     setClub(storedClub);
-
-  //     // Fetch events for the club
-  //     axios
-  //       .get(`http://localhost:5000/clubs?name=${storedClub}`)
-  //       .then((response) => {
-  //         //  Assuming the response.data contains club details including clubId
-  //         const clubId = response.data[0].id;
-  //       })
-  //       .catch((clubErr) => setError(clubErr.message));
-  //   }
-  // }, []);
 
   return (
     <div className="dashboard-container">
@@ -51,13 +15,16 @@ const Dashboard = () => {
         <div className="club-name">{clubName && <p>Hello {clubName} !</p>}</div>
       </div>
       <Link to="/Organize">
-        <button className="organize-btn">Organise an Event!</button>
+        <button className="organize-btn">Organise an Event</button>
+      </Link>
+      <Link to="/Events_Club">
+        <button className="event-btn">Events</button>
       </Link>
       <div className="events">
         <h2>Events for {clubName}</h2>
       </div>
       <div className="card">
-        <EventCardItem events={events} />
+        <EventCardClub/>
       </div>
     </div>
   );

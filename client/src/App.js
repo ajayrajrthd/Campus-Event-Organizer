@@ -15,6 +15,10 @@ import Email_Extract from './components/pages/Email_Extract.js';
 import Registration_Select from './components/pages/Registation_Select.js';
 import Dashboard from './components/Dashboard.js';
 import Register_Student from './components/Register_Student.js';
+import Events_Club from './components/pages/Events_Club.js';
+import Event_Attendance from './components/pages/Event_Attendance.js';
+import Adlogin from './components/Adlogin.js';
+import Admin from './components/Admin.js';
 // import { Switch } from 'react-router-dom';
 
 function App() {
@@ -36,6 +40,10 @@ function App() {
           <Route path='/Email_Extract' element={<Email_Extract/>}/> 
           <Route path='/Registration_Select' element={<Registration_Select/>}/> 
           <Route path='/dashboard' element={<Dashboard/>}></Route>
+          <Route path='/Events_Club' element={<Events_Club/>}></Route>
+          <Route path='/Event_Attendance' element={<Event_Attendance/>}></Route>
+          <Route path="/Adlogin" element={<Adlogin />} />
+          <Route path="/Admin" element={<Admin />} />
         </Routes>
       </Router>
     </>

@@ -5,7 +5,7 @@ import axios from 'axios';
 function EventCard({ event }) {
   return (
     <li key={event.id} className="event_cards__item">
-      <Link className="event_cards__item__link" to={event.bookingLink}>
+      <Link className="event_cards__item__link" to='/Register_Events'>
         <h5 className="event_cards__item__text">{event.eventName}</h5>
       </Link>
       <div className="event_cards__item__info">

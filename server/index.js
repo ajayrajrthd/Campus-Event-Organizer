@@ -9,6 +9,9 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const session = require('express-session');
+const multer = require('multer');
+const fs = require('fs');
+const Grid = require('gridfs-stream');
 const UserModel = require('./modules/Events_Info')
 
 // Middleware
@@ -19,6 +22,7 @@ const url = 'mongodb+srv://disha:dishadisha@cluster0.0fuuedz.mongodb.net/Event';
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
+const conn = mongoose.connection;
 
 //connecting to Events_Info
 app.get('/getEvents', (req, res) => {
@@ -128,21 +132,22 @@ app.post('/register_student', async (req, res) => {
 });
 
 //Login
-app.post('/login', async (req, res) => {
-  const { email, password } = req.body;
-  try {
-    const reg = await Reg.findOne({ email });
-    if (!reg) {
-      return res.status(400).json({ message: 'Invalid email or password' });
+app.post('/login',async(req,res)=>{
+  const{email,password}=req.body;
+  try{
+    const reg=await Reg.findOne({email});
+    if (!reg){
+      return res.status(400).json({ message: 'invalid email or password' });
+      alert('invalid email')
     }
-    const isPasswordValid = await bcrypt.compare(password, reg.password);
+const isPasswordValid = await bcrypt.compare(password, reg.password);
     if (!isPasswordValid) {
       return res.status(400).json({ message: 'Invalid email or password' });
     }
-    req.session.reg = { email: reg.email };
-    // Send the club name along with the login success message
-    return res.json({ message: 'Login successful', club: reg.club });
-  } catch (error) {
+    req.session.reg={email:reg.email};
+    return res.json({message:'login successfull'})
+  }
+  catch(error){
     return res.status(500).json({ message: 'Server error' });
   }
 });
@@ -156,10 +161,14 @@ const dataSchema = new mongoose.Schema({
   eventDate: String,
   eventTime: String,
   seatsAvailable: Number,
-  bookingLink: String
+  bookingLink: String,
+  name: String,
+  attendance: Buffer
 });
 
 const Data = mongoose.model('organizer', dataSchema);
+const upload = multer({ dest: 'uploads/' });
+
 
 // Add Route
 app.post('/add', (req, res) => {
@@ -169,16 +178,14 @@ app.post('/add', (req, res) => {
     .catch((err) => res.status(400).json({ message: 'Error adding data', error: err }));
 });
 
-const coll = Data
-app.get("/club_events", async (req, res) => {
-  const { organizer } = req.query;
-
+app.get('/organizers/:organizer', async (req, res) => {
   try {
-    const club_events = await coll.find({ organizer }).toArray();
-    res.json(club_events);
-  } catch (error) {
-    console.error("Error fetching events:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    const organizer = req.params.organizer;
+    const organizers = await Data.find({ organizer: organizer }).exec();
+    res.json(organizers);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Error fetching data' });
   }
 });
 
@@ -198,3 +205,116 @@ app.get("/email", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port:${port}`);
 });
+
+
+const pdfSchema = new mongoose.Schema({
+  name: String,
+  attendance: Buffer
+});
+const Pdf = mongoose.model('Pdf', pdfSchema);
+
+//  let gfs;
+//  conn.once('open', () => {
+//  gfs = Grid(conn.db, mongoose.mongo);
+//  gfs.collection('pdfs'); // Name of the collection
+//  });
+
+// Route to handle file upload
+app.post('/upload', upload.single('pdf'), async (req, res) => {
+  try {
+    const newPdf = new Pdf({
+      name: req.file.originalname,
+      attendance: fs.readFileSync(req.file.path)
+    });
+    await newPdf.save();
+    res.status(200).send('File uploaded successfully');
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
+
+
+app.get('/pdf_get', async (req, res) => {
+  try {
+    // Fetch all records from the 'pdfs' collection
+    const records = await Pdf.find();
+    res.json(records);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+
+
+
+
+app.get('/pdf_get/:id', async (req, res) => {
+  const pdfId = req.params.id;
+
+  try {
+    // Fetch the PDF document from the database by ID
+    const pdf = await Pdf.findById(pdfId);
+
+    if (!pdf) {
+      return res.status(404).json({ message: 'PDF not found' });
+    }
+
+    // Set response headers for PDF download
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename=${pdf.name}.pdf`);
+
+    // Send the PDF data as a response
+    res.send(pdf.attendance);
+  } catch (error) {
+    console.error('Error fetching PDF:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+
+
+
+// Route to download a specific PDF file by ID
+// app.get('/pdf_get/:id', (req, res) => {
+//   const fileId = req.params.id;
+
+//   gfs.files.findOne({ _id: fileId }, (err, file) => {
+//     if (!file || file.length === 0) {
+//       return res.status(404).json({ message: 'File not found' });
+//     }
+
+//     const readstream = gfs.createReadStream(file.filename);
+//     readstream.pipe(res);
+//   });
+// });
+
+
+// let gfs;
+// conn.once('open', () => {
+//   gfs = Grid(conn.db, mongoose.mongo);
+//   gfs.collection('pdfs'); // Name of the collection
+// });
+
+// // Route to fetch all records from the pdfs collection
+// app.get('/pdf_get', async (req, res) => {
+//   try {
+//     const records = await gfs.files.find().toArray();
+//     res.json(records);
+//   } catch (err) {
+//     res.status(500).json({ message: err.message });
+//   }
+// });
+
+// // Route to download a specific PDF file by ID
+// app.get('/pdf_get/:id', (req, res) => {
+//   const fileId = req.params.id;
+
+//   gfs.files.findOne({ _id: fileId }, (err, file) => {
+//     if (!file || file.length === 0) {
+//       return res.status(404).json({ message: 'File not found' });
+//     }
+
+//     const readstream = gfs.createReadStream(file.filename);
+//     readstream.pipe(res);
+//   });
+// });

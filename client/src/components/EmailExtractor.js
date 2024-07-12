@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Papa from 'papaparse';
 import emailjs from '@emailjs/browser'
+import './EmailExtractor.css'
 
 function EmailExtractor() {
   const [emails, setEmails] = useState([]);
@@ -48,7 +49,6 @@ function EmailExtractor() {
 
   return (
     <div>
-      <h1>Email Extractor</h1>
       <input type="file" onChange={handleFileChange} accept=".csv" />
       <h2>Emails:</h2>
       <ul>

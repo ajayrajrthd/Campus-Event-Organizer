@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import './Events_Info_Display.css'
 import axios from 'axios'
 import emailjs from '@emailjs/browser'
+import EmailExtractor from './EmailExtractor'
 
 const header = [
     {label: 'Name', key: 'name'},
@@ -61,6 +62,7 @@ function Registation_Selection() {
 
   return (
     <div classname="first_class">
+        <h1 style={{backgroundColor: "grey" , color: "white", padding: '10px'}}>Manual Selection</h1>
         <table classname="table">
             <thead>
                 <tr>
@@ -103,6 +105,9 @@ function Registation_Selection() {
                 }
             </tbody>
         </table>
+        
+        <h1 style={{backgroundColor: "grey" , color: "white", padding: '10px'}}>Upload CSV</h1>
+        <EmailExtractor/>
     </div>
   )
 }
