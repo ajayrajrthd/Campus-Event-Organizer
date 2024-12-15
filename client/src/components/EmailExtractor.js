@@ -12,6 +12,7 @@ function EmailExtractor() {
         complete: (result) => {
           const emailColumn = result.data.map(row => row.Email);
           setEmails(emailColumn.filter(email => email)); // Filter out empty values
+          console.log(emailColumn)
         },
         error: (error) => {
           console.error('Error parsing CSV:', error);
