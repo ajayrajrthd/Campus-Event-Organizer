@@ -35,7 +35,7 @@ Managing campus events manually leads to inefficiencies, scheduling conflicts, p
 ## 🔧 Installation & Setup
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/your-username/campus-event-organizer.git
+   git clone https://github.com/ajayrajrthd/campus-event-organizer.git
    cd campus-event-organizer
    ```
 2. **Install dependencies**:
