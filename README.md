@@ -60,3 +60,14 @@ Managing campus events manually leads to inefficiencies, scheduling conflicts, p
 3. Commit your changes (`git commit -m "Added new feature"`).
 4. Push to the branch (`git push origin feature-branch`).
 5. Open a Pull Request.
+
+## 🔮 Future Scope
+
+The Campus Event Organizer has immense potential for future enhancements, including:
+1. Mobile Application Development - Build a mobile version of the application for Android and iOS to increase accessibility.
+3. AI-Powered Event Recommendations - Implement AI/ML models to suggest personalized events based on user interests and past participation.
+4. Integration with University Portals - Seamless integration with university management systems to automatically sync academic and extracurricular schedules.
+5. QR-Based Attendance System - Implement QR code scanning for quick and hassle-free attendance tracking.
+7. Gamification & Reward System - Introduce leaderboards, badges, and rewards to encourage student participation.
+9. Automated Feedback Collection - Gather and analyze participant feedback using sentiment analysis to improve future events.
+11. Multi-University Collaboration - Extend the platform for inter-college events, allowing multiple universities to collaborate and host competitions.
