@@ -14,7 +14,7 @@ The **Campus Event Organizer** is a comprehensive web-based platform designed to
 - **Scalability & Flexibility**: Supports events of varying scales with a user-friendly interface.
 
 ## 🛠️ Tech Stack
-- **Frontend**: HTML, CSS, JavaScript (React/Svelte)
+- **Frontend**: HTML, CSS, JavaScript (React)
 - **Backend**: Node.js (Express/NestJS)
 - **Database**: MongoDB / PostgreSQL / MySQL
 - **Authentication**: JWT, OAuth
