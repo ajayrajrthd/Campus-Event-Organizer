@@ -11,8 +11,10 @@ function Organizer() {
     eventDate: '',
     eventTime: '',
     seatsAvailable: '',
-    bookingLink: ''
+    bookingLink: '',
+    attandance: '' 
   });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -21,8 +23,20 @@ function Organizer() {
     });
   };
 
+  const handleClubChange = (e) => {
+    const { value } = e.target;
+    setFormData({
+      ...formData,
+      organizer: value
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!formData.organizer) {
+      alert('Please select a club');
+      return;
+    }
     try {
       await axios.post('http://localhost:5000/add', formData);
       alert('Data created successfully');
@@ -34,7 +48,7 @@ function Organizer() {
         eventDate: '',
         eventTime: '',
         seatsAvailable: '',
-        bookingLink: ''
+        bookingLink: '',
       });
     } catch (error) {
       console.error('Error submitting data:', error);
@@ -46,17 +60,22 @@ function Organizer() {
       <div className="form-container-inside">
         <h1>Organize An Event!</h1>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="organizer">Organizer Name:</label>
-          <input
-            type="text"
+        <label htmlFor="organizer">Organizer:</label>
+          <select
             id="organizer"
             name="organizer"
             value={formData.organizer}
-            placeholder="Enter Your Name"
-            onChange={handleChange}
+            onChange={handleClubChange}
             required
-          /><br/><br/>
-
+          >
+            <option value="">Select a Club</option>
+            <option value="GDSC">GDSC</option>
+            <option value="IEEE">IEEE</option>
+            <option value="ANTRANG">ANTRANG</option>
+            <option value="OJUS">OJUS</option>
+            <option value="APSIT">APSIT</option>
+          </select>
+          <br/><br/>
           <label htmlFor="eventName">Event Name:</label>
           <input
             type="text"
@@ -129,6 +148,7 @@ function Organizer() {
             onChange={handleChange}
             placeholder="https://bookyourseat.com"
           /><br/><br/>
+
           
           <button type="submit">Submit</button>
         </form>

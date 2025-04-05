@@ -1,33 +1,45 @@
-import React from 'react';
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios'
+import axios from 'axios';
 
-function EventCardItem() {
-  const [organizer, setEvents] = useState([])
-    useEffect(()=> {
-        axios.get('http://localhost:5000/getEvents')
-        .then(organizer => setEvents(organizer.data))
-        .catch(err => console.log(err))
-    }, [])
-    
+function EventCard({ event }) {
   return (
-    <>
-      {
-        organizer.map(i => {
-        return <li className='event_cards__item'>
-          <Link className='event_cards__item__link' to={i.bookingLink}>
-          <h5 className='event_cards__item__text'>{i.eventName}</h5>
-          </Link>
-            <div className='event_cards__item__info'>
-            <p className='event_cards__item__paragraph'>{i.eventDescription}</p>
-            <a href={i.bookingLink} className='event_cards__item__anchor'>{i.bookingLink}</a>
-            </div>
-        </li>
-        })
-    }
-  </>
+    <li key={event.id} className="event_cards__item">
+      <Link className="event_cards__item__link" to='/Register_Events'>
+        <h5 className="event_cards__item__text">{event.eventName}</h5>
+      </Link>
+      <div className="event_cards__item__info">
+        <p className="event_cards__item__paragraph">{event.eventDescription}</p>
+        <a href={event.bookingLink} className="event_cards__item__anchor">
+          {event.bookingLink}
+        </a>
+      </div>
+    </li>
   );
 }
 
-export default EventCardItem;
+function EventCardList() {
+  const [organizer, setOrganizer] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:5000/getEvents')
+      .then((response) => setOrganizer(response.data))
+      .catch((err) => setError(err.message));
+  }, []);
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  return (
+    <ul className="event_cards">
+      {organizer.map((event) => (
+        <EventCard key={event.id} event={event} />
+      ))}
+    </ul>
+  );
+}
+
+export default EventCardList;

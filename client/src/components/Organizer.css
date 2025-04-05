@@ -5,6 +5,14 @@
     padding: 20px 20px;
 }
 
+/* .form-container-inside select{
+  margin: 10px 0 10px 0;
+  padding: 10px;
+  font-size: 16px;
+  border: 0;
+  font-family: "Roboto", sans-serif;
+} */
+
 .form-container-inside {
     max-width: 800px;
     margin: 0 auto;
@@ -28,6 +36,7 @@
   .form-container-inside form input[type="number"],
   .form-container-inside form input[type="time"],
   .form-container-inside form textarea,
+  .form-container-inside form select,
   .form-container-inside form button {
     width: 100%;
     padding: 10px;

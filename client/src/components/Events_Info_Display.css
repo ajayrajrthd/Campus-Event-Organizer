@@ -19,6 +19,14 @@ table, td, th {
     text-align: center;
   }
 
+  .first_class h1{
+    margin: 10px;
+    background-color: #4b4b4b;
+    border-radius: 15px;
+    padding: 10px;
+    color: aliceblue;
+  }
+
   button{
    margin: 10px;
    background-color: #626462; /* Green */
