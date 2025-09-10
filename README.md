@@ -1,5 +1,10 @@
 # Campus Event Organizer
 
+![MongoDB](https://img.shields.io/badge/MongoDB-%2347A248.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=white)
+![React](https://img.shields.io/badge/React-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+
 ## 📌 Introduction
 The **Campus Event Organizer** is a comprehensive web-based platform designed to streamline the management of campus events. It serves as a centralized hub for planning, coordinating, and executing events across universities and colleges. Whether it's academic symposiums, cultural festivals, workshops, or sports tournaments, this platform empowers event organizers with powerful tools to ensure seamless execution and attendee engagement.
 
