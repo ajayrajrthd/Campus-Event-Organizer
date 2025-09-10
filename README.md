@@ -54,19 +54,19 @@ Managing campus events manually leads to inefficiencies, scheduling conflicts, p
    ```
 5. **Access the application** at `http://localhost:3000`
 
-## 🎭 Usage
+## Usage
 1. **Admin Panel**: Manage users, events, permissions, and reports.
 2. **Event Organizers**: Create and manage events, send invitations, track attendees.
 3. **Attendees**: Browse events, register, and receive notifications.
 
-## 🤝 Contributing
+## Contributing
 1. Fork the repository.
 2. Create a new branch (`feature-branch`).
 3. Commit your changes (`git commit -m "Added new feature"`).
 4. Push to the branch (`git push origin feature-branch`).
 5. Open a Pull Request.
 
-## 🔮 Future Scope
+## Future Scope
 
 The Campus Event Organizer has immense potential for future enhancements, including:
 1. Mobile Application Development - Build a mobile version of the application for Android and iOS to increase accessibility.
